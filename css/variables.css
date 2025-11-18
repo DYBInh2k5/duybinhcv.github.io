@@ -1,0 +1,11 @@
+/* Tailwind CSS Configuration - All styles handled via utility classes */
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1e40af;
+    --secondary: #9333ea;
+    --accent: #06b6d4;
+    --background: #ffffff;
+    --background-secondary: #f3f4f6;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+}
