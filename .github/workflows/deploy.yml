@@ -1,0 +1,40 @@
+name: Auto Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - '.github/workflows/deploy.yml'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Copy src to root
+        run: |
+          cp -r src/* .
+          # Remove src folder if you want to keep repo clean (optional)
+          # rm -rf src
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          if [[ -n $(git status -s) ]]; then
+            git add -A
+            git commit -m "Auto Deploy: Update from src/ ($(date +'%Y-%m-%d %H:%M:%S'))"
+            git push origin main
+          else
+            echo "No changes to commit"
+          fi
