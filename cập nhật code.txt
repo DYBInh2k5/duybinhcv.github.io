@@ -1,0 +1,8 @@
+# Mở PowerShell từ thư mục project
+cd "c:\Users\User\OneDrive\Desktop\SSb\Bảng CV\CV build\personal-cv-website"
+
+# Chạy script (với message tùy chỉnh)
+.\deploy.ps1 "Cập nhật trang chủ"
+
+# Hoặc chỉ cần chạy mà không message
+.\deploy.ps1
