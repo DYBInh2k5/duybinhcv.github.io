@@ -1,12 +1,11 @@
-// Client-side blog using localStorage with optional Firebase Firestore sync
+// Client-side blog using localStorage with optional Supabase sync
 // Storage key: blog_posts (JSON array of posts)
-// Post shape: { id, title, content (HTML), excerpt, createdAt (ISO), image (dataURL) }
-// Firebase: If db is available (from blog.html or post.html), sync posts to Firestore
+// Post shape: { id, title, content (HTML), excerpt, createdAt (ISO), image (dataURL), published, featured, category, author_id }
 
 (function(){
     const STORAGE_KEY = 'blog_posts';
-    // detect Firestore availability via new helper API (db or FirestoreAPI)
-    let useFirebase = (typeof db !== 'undefined' && db !== null) || (window.FirestoreAPI && window.FirestoreAPI.isAvailable && window.FirestoreAPI.isAvailable());
+    // detect Supabase availability via new helper API (db or SupabaseAPI)
+    let useSupabase = (typeof window.db !== 'undefined' && window.db !== null) || (window.SupabaseAPI && window.SupabaseAPI.isAvailable());
 
     function uid() {
         return 'post_' + Date.now() + '_' + Math.random().toString(36).slice(2,9);
@@ -23,47 +22,64 @@
     }
 
     function savePosts(posts){
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
-        // Sync to Firebase if available
-        if (useFirebase) syncToFirebase(posts);
-    }
-
-    async function syncToFirebase(posts){
-        if (!useFirebase) return;
         try{
-            if (window.FirestoreAPI && window.FirestoreAPI.syncPosts){
-                await window.FirestoreAPI.syncPosts(posts);
-            } else if (typeof db !== 'undefined' && db){
-                // fallback to direct compat-style batch
-                const batch = db.batch();
-                const postsRef = db.collection('blog_posts');
-                const snapshot = await postsRef.get();
-                snapshot.forEach(doc=> batch.delete(doc.ref));
-                posts.forEach(post=> {
-                    const docRef = postsRef.doc(post.id);
-                    batch.set(docRef, post);
-                });
-                await batch.commit();
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+            // Sync to Supabase if available
+            if (useSupabase) {
+                syncToSupabase(posts);
             }
-            console.info('Blog posts synced to Firebase.');
         }catch(err){
-            console.error('Firebase sync error:', err);
+            console.error('Failed to save blog posts', err);
         }
     }
 
-    // Load posts from Firebase if available, otherwise from localStorage
+    async function syncToSupabase(posts){
+        if (!useSupabase) return;
+        
+        try{
+            // Get current posts from Supabase
+            const { data: existingPosts } = await window.SupabaseAPI.getAllPosts();
+            const existingPostIds = new Set(existingPosts.map(p => p.id));
+            
+            // Find posts to add (not in Supabase)
+            const postsToAdd = posts.filter(post => !existingPostIds.has(post.id));
+            
+            // Find posts to delete (in localStorage but not in Supabase)
+            const localPostIds = new Set(posts.map(p => p.id));
+            const postsToDelete = existingPosts.filter(post => !localPostIds.has(post.id));
+            
+            console.log(`Syncing ${postsToAdd.length} new posts to Supabase`);
+            console.log(`Removing ${postsToDelete.length} posts from Supabase`);
+            
+            // Add new posts
+            for (const post of postsToAdd) {
+                await window.SupabaseAPI.addPost(post);
+            }
+            
+            // Delete posts that are no longer in localStorage
+            for (const post of postsToDelete) {
+                await window.SupabaseAPI.deletePost(post.id);
+            }
+            
+            console.log('Blog posts synced to Supabase successfully');
+        }catch(err){
+            console.error('Supabase sync error:', err);
+        }
+    }
+
+    // Load posts from Supabase if available, otherwise from localStorage
     async function loadPostsWithFallback(){
-        // Prefer Firestore via helper API if available
-        if (useFirebase){
+        // Prefer Supabase via helper API if available
+        if (useSupabase){
             try{
-                if (window.FirestoreAPI && window.FirestoreAPI.getAllPosts){
-                    const posts = await window.FirestoreAPI.getAllPosts();
+                if (window.SupabaseAPI && window.SupabaseAPI.getAllPosts){
+                    const posts = await window.SupabaseAPI.getAllPosts();
                     if (posts && posts.length){
                         savePosts(posts);
                         return posts;
                     }
-                } else if (typeof db !== 'undefined' && db){
-                    const snapshot = await db.collection('blog_posts').get();
+                } else if (typeof window.db !== 'undefined' && window.db){
+                    const snapshot = await window.db.collection('blog_posts').get();
                     if (!snapshot.empty){
                         const posts = snapshot.docs.map(doc=> doc.data());
                         savePosts(posts);
