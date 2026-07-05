@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - Võ Duy Bình</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .testimonial-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        .star-rating {
+            color: #fbbf24;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 with-sidebar">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">
+                <div class="sidebar-logo-icon"><i class="fas fa-code"></i></div>
+                <span class="sidebar-logo-text">Vo Duy Binh</span>
+            </a>
+            <button class="sidebar-toggle"><i class="fas fa-chevron-left"></i></button>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="sidebar-nav-section">
+                <a href="index.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-home"></i></div>
+                    <span class="sidebar-nav-item-text">Home</span>
+                </a>
+                <a href="index.html#about" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-user"></i></div>
+                    <span class="sidebar-nav-item-text">About</span>
+                </a>
+                <a href="index.html#skills" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-star"></i></div>
+                    <span class="sidebar-nav-item-text">Skills</span>
+                </a>
+            </div>
+            <div class="sidebar-nav-section">
+                <label class="sidebar-nav-label">Pages</label>
+                <a href="services.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-briefcase"></i></div>
+                    <span class="sidebar-nav-item-text">Services</span>
+                </a>
+                <a href="experience.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-building"></i></div>
+                    <span class="sidebar-nav-item-text">Experience</span>
+                </a>
+                <a href="timeline.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-timeline"></i></div>
+                    <span class="sidebar-nav-item-text">Timeline</span>
+                </a>
+                <a href="testimonials.html" class="sidebar-nav-item active">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-quote-left"></i></div>
+                    <span class="sidebar-nav-item-text">Testimonials</span>
+                </a>
+                <a href="gallery.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-images"></i></div>
+                    <span class="sidebar-nav-item-text">Gallery</span>
+                </a>
+            </div>
+            <div class="sidebar-nav-section">
+                <label class="sidebar-nav-label">Content</label>
+                <a href="index.html#projects" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-laptop-code"></i></div>
+                    <span class="sidebar-nav-item-text">Projects</span>
+                </a>
+                <a href="blog.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-blog"></i></div>
+                    <span class="sidebar-nav-item-text">Blog</span>
+                </a>
+            </div>
+            <div class="sidebar-nav-section">
+                <label class="sidebar-nav-label">Other</label>
+                <a href="index.html#contact" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-envelope"></i></div>
+                    <span class="sidebar-nav-item-text">Contact</span>
+                </a>
+            </div>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="sidebar-socials">
+                <a href="https://github.com/DYBInh2k5" target="_blank" class="sidebar-social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/binhdzkosai18cm" target="_blank" class="sidebar-social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/in/b%C3%ACnh-v%C3%B5-duy-5a9891308/" target="_blank" class="sidebar-social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <button class="sidebar-theme-toggle"><i class="fas fa-sun"></i> <span>Theme</span></button>
+        </div>
+    </aside>
+    <div class="sidebar-overlay"></div>
+    <main class="main-content">
+
+    <!-- Hero Section -->
+    <section class="min-h-screen bg-gradient-to-br from-blue-600 via-blue-500 to-purple-600 text-white flex items-center justify-center px-4 pt-20">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in-up">
+                Testimonials
+            </h1>
+            <p class="text-xl sm:text-2xl text-blue-100 animate-fade-in-up" style="animation-delay: 0.1s">
+                What others say about working with me
+            </p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            JD
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">John Doe</h3>
+                            <p class="text-gray-600 text-sm">Tech Lead, Company XYZ</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1 mb-4 star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        "Binh is an exceptional developer with strong problem-solving skills. During his internship, he quickly adapted to our codebase and contributed meaningful features. His attention to detail and willingness to learn made him a valuable team member."
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">React</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">Teamwork</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            SM
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Sarah Martinez</h3>
+                            <p class="text-gray-600 text-sm">Project Manager, Digital Agency ABC</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1 mb-4 star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        "Working with Binh on multiple client projects has been fantastic. He's reliable, communicates well, and delivers high-quality work on time. His understanding of both frontend and backend makes him a true full-stack developer."
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs rounded-full">Full Stack</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs rounded-full">Reliability</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            CL
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Chen Li</h3>
+                            <p class="text-gray-600 text-sm">Professor, Hoa Sen University</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1 mb-4 star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        "As a student in my class and later as a mentor in our tech club, Binh has consistently shown academic excellence and leadership qualities. He inspires other students through his passion for technology and commitment to continuous learning."
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-green-100 text-green-700 text-xs rounded-full">Academic</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-700 text-xs rounded-full">Leadership</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            AS
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Alex Smith</h3>
+                            <p class="text-gray-600 text-sm">Founder, Part Time Buddy</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1 mb-4 star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        "Binh led the development of Part Time Buddy with great enthusiasm and responsibility. His technical skills, combined with his ability to manage a team effectively, were crucial to the project's success. He's definitely someone I'd love to work with again."
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs rounded-full">Project Lead</span>
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs rounded-full">Innovation</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            EM
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Emily Brown</h3>
+                            <p class="text-gray-600 text-sm">Senior Developer, Tech Startup</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1 mb-4 star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        "Binh was a mentee of mine and I was impressed by his dedication to mastering new technologies. He asks insightful questions, actively seeks feedback, and implements improvements quickly. He's destined for great things in the tech industry."
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-pink-100 text-pink-700 text-xs rounded-full">Learning Attitude</span>
+                        <span class="px-3 py-1 bg-pink-100 text-pink-700 text-xs rounded-full">Growth</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            MK
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Michael Kim</h3>
+                            <p class="text-gray-600 text-sm">IT Manager, Hoa Sen University</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1 mb-4 star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+    </main>
+
+
+
+    <!-- Stats Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">By The Numbers</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">6+</div>
+                    <p class="text-gray-600">Happy Clients</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-purple-600 mb-2">5★</div>
+                    <p class="text-gray-600">Avg. Rating</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-green-600 mb-2">100%</div>
+                    <p class="text-gray-600">On-Time Delivery</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-indigo-600 mb-2">2+</div>
+                    <p class="text-gray-600">Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 px-4 text-center">
+        <p>&copy; 2025 Võ Duy Bình. All rights reserved.</p>
+    </footer>
+
+    <script src="js/sidebar.js"></script>
+</body>
+</html>

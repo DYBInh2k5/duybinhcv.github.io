@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Võ Duy Bình</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        .gallery-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+        .gallery-filter-btn {
+            transition: all 0.3s ease;
+        }
+        .gallery-filter-btn.active {
+            background-color: #2563eb;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 with-sidebar">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">
+                <div class="sidebar-logo-icon"><i class="fas fa-code"></i></div>
+                <span class="sidebar-logo-text">Vo Duy Binh</span>
+            </a>
+            <button class="sidebar-toggle"><i class="fas fa-chevron-left"></i></button>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="sidebar-nav-section">
+                <a href="index.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-home"></i></div>
+                    <span class="sidebar-nav-item-text">Home</span>
+                </a>
+                <a href="index.html#about" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-user"></i></div>
+                    <span class="sidebar-nav-item-text">About</span>
+                </a>
+                <a href="index.html#skills" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-star"></i></div>
+                    <span class="sidebar-nav-item-text">Skills</span>
+                </a>
+            </div>
+            <div class="sidebar-nav-section">
+                <label class="sidebar-nav-label">Pages</label>
+                <a href="services.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-briefcase"></i></div>
+                    <span class="sidebar-nav-item-text">Services</span>
+                </a>
+                <a href="experience.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-building"></i></div>
+                    <span class="sidebar-nav-item-text">Experience</span>
+                </a>
+                <a href="timeline.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-timeline"></i></div>
+                    <span class="sidebar-nav-item-text">Timeline</span>
+                </a>
+                <a href="testimonials.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-quote-left"></i></div>
+                    <span class="sidebar-nav-item-text">Testimonials</span>
+                </a>
+                <a href="gallery.html" class="sidebar-nav-item active">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-images"></i></div>
+                    <span class="sidebar-nav-item-text">Gallery</span>
+                </a>
+            </div>
+            <div class="sidebar-nav-section">
+                <label class="sidebar-nav-label">Content</label>
+                <a href="index.html#projects" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-laptop-code"></i></div>
+                    <span class="sidebar-nav-item-text">Projects</span>
+                </a>
+                <a href="blog.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-blog"></i></div>
+                    <span class="sidebar-nav-item-text">Blog</span>
+                </a>
+            </div>
+            <div class="sidebar-nav-section">
+                <label class="sidebar-nav-label">Other</label>
+                <a href="index.html#contact" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-envelope"></i></div>
+                    <span class="sidebar-nav-item-text">Contact</span>
+                </a>
+            </div>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="sidebar-socials">
+                <a href="https://github.com/DYBInh2k5" target="_blank" class="sidebar-social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/binhdzkosai18cm" target="_blank" class="sidebar-social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/in/b%C3%ACnh-v%C3%B5-duy-5a9891308/" target="_blank" class="sidebar-social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <button class="sidebar-theme-toggle"><i class="fas fa-sun"></i> <span>Theme</span></button>
+        </div>
+    </aside>
+    <div class="sidebar-overlay"></div>
+    <main class="main-content">
+
+    <!-- Hero Section -->
+    <section class="min-h-screen bg-gradient-to-br from-blue-600 via-blue-500 to-purple-600 text-white flex items-center justify-center px-4 pt-20">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in-up">
+                Gallery
+            </h1>
+            <p class="text-xl sm:text-2xl text-blue-100 animate-fade-in-up" style="animation-delay: 0.1s">
+                Visual moments and project showcases
+            </p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="gallery-filter-btn active px-6 py-2 rounded-full border-2 border-blue-600 bg-blue-600 text-white font-medium" data-filter="all">
+                    All
+                </button>
+                <button class="gallery-filter-btn px-6 py-2 rounded-full border-2 border-gray-300 text-gray-700 font-medium hover:border-blue-600 hover:text-blue-600" data-filter="projects">
+                    <i class="fas fa-laptop-code mr-2"></i>Projects
+                </button>
+                <button class="gallery-filter-btn px-6 py-2 rounded-full border-2 border-gray-300 text-gray-700 font-medium hover:border-blue-600 hover:text-blue-600" data-filter="events">
+                    <i class="fas fa-calendar mr-2"></i>Events
+                </button>
+                <button class="gallery-filter-btn px-6 py-2 rounded-full border-2 border-gray-300 text-gray-700 font-medium hover:border-blue-600 hover:text-blue-600" data-filter="workshops">
+                    <i class="fas fa-chalkboard mr-2"></i>Workshops
+                </button>
+                <button class="gallery-filter-btn px-6 py-2 rounded-full border-2 border-gray-300 text-gray-700 font-medium hover:border-blue-600 hover:text-blue-600" data-filter="team">
+                    <i class="fas fa-people-group mr-2"></i>Team
+                </button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Item 1 - Project -->
+                <div class="gallery-item group gallery-item-all gallery-item-projects" style="min-height: 250px;">
+                    <div class="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-mobile-alt text-5xl mb-4"></i>
+                            <p class="text-lg font-semibold">Part Time Buddy App</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item-overlay">
+                        <div class="text-center text-white">
+                            <p class="font-semibold mb-2">Project Lead</p>
+                            <p class="text-sm">Full-stack job matching platform</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 - Project -->
+                <div class="gallery-item group gallery-item-all gallery-item-projects" style="min-height: 250px;">
+                    <div class="w-full h-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-database text-5xl mb-4"></i>
+                            <p class="text-lg font-semibold">Library Management System</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item-overlay">
+                        <div class="text-center text-white">
+                            <p class="font-semibold mb-2">Database Project</p>
+                            <p class="text-sm">SQL Server with T-SQL</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 - Project -->
+                <div class="gallery-item group gallery-item-all gallery-item-projects" style="min-height: 250px;">
+                    <div class="w-full h-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-face-smile text-5xl mb-4"></i>
+                            <p class="text-lg font-semibold">Face Recognition System</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item-overlay">
+                        <div class="text-center text-white">
+                            <p class="font-semibold mb-2">AI Project</p>
+                            <p class="text-sm">Python + OpenCV + Firebase</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 - Event -->
+                <div class="gallery-item group gallery-item-all gallery-item-events" style="min-height: 250px;">
+                    <div class="w-full h-full bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-conference text-5xl mb-4"></i>
+                            <p class="text-lg font-semibold">Tech Summit 2024</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item-overlay">
+                        <div class="text-center text-white">
+                            <p class="font-semibold mb-2">Speaker</p>
+                            <p class="text-sm">Web Development Trends</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 - Workshop -->
+                <div class="gallery-item group gallery-item-all gallery-item-workshops" style="min-height: 250px;">
+                    <div class="w-full h-full bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-code text-5xl mb-4"></i>
+                            <p class="text-lg font-semibold">React Workshop</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item-overlay">
+                        <div class="text-center text-white">
+                            <p class="font-semibold mb-2">Instructor</p>
+                            <p class="text-sm">For university students</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 6 - Team -->
+                <div class="gallery-item group gallery-item-all gallery-item-team" style="min-height: 250px;">
+                    <div class="w-full h-full bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-people-group text-5xl mb-4"></i>
+                            <p class="text-lg font-semibold">Dev Team</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item-overlay">
+                        <div class="text-center text-white">
+                            <p class="font-semibold mb-2">Team Lead</p>
+                            <p class="text-sm">4 talented developers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 7 - Project -->
+                <div class="gallery-item group gallery-item-all gallery-item-projects" style="min-height: 250px;">
+                    <div class="w-full h-full bg-gradient-to-br from-cyan-400 to-cyan-600 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-chart-line text-5xl mb-4"></i>
+                            <p class="text-lg font-semibold">Finance Tracker</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item-overlay">
+                        <div class="text-center text-white">
+                            <p class="font-semibold mb-2">Full Stack</p>
+                            <p class="text-sm">React + Node.js + Charts</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 8 - Event -->
+                <div class="gallery-item group gallery-item-all gallery-item-events" style="min-height: 250px;">
+                    <div class="w-full h-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-trophy text-5xl mb-4"></i>
+                            <p class="text-lg font-semibold">Award Ceremony</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item-overlay">
+                        <div class="text-center text-white">
+                            <p class="font-semibold mb-2">Achievement</p>
+                            <p class="text-sm">Excellence in Tech Award</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 9 - Workshop -->
+                <div class="gallery-item group gallery-item-all gallery-item-workshops" style="min-height: 250px;">
+                    <div class="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-database text-5xl mb-4"></i>
+                            <p class="text-lg font-semibold">SQL Bootcamp</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item-overlay">
+                        <div class="text-center text-white">
+                            <p class="font-semibold mb-2">Instructor</p>
+                            <p class="text-sm">Database fundamentals</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Gallery Highlights</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-6 rounded-2xl bg-blue-50 hover:bg-blue-100 transition">
+                    <i class="fas fa-images text-4xl text-blue-600 mb-3"></i>
+                    <div class="text-3xl font-bold text-blue-600 mb-2">20+</div>
+                    <p class="text-gray-600">Gallery Items</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-purple-50 hover:bg-purple-100 transition">
+                    <i class="fas fa-laptop-code text-4xl text-purple-600 mb-3"></i>
+                    <div class="text-3xl font-bold text-purple-600 mb-2">10+</div>
+                    <p class="text-gray-600">Projects</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-green-50 hover:bg-green-100 transition">
+                    <i class="fas fa-chalkboard text-4xl text-green-600 mb-3"></i>
+                    <div class="text-3xl font-bold text-green-600 mb-2">15+</div>
+                    <p class="text-gray-600">Workshops</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-indigo-50 hover:bg-indigo-100 transition">
+                    <i class="fas fa-calendar-alt text-4xl text-indigo-600 mb-3"></i>
+                    <div class="text-3xl font-bold text-indigo-600 mb-2">25+</div>
+                    <p class="text-gray-600">Events</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 px-4 text-center">
+        <p>&copy; 2025 Võ Duy Bình. All rights reserved.</p>
+    </footer>
+
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 py-8 px-4 text-center">
+        <p>&copy; 2025 Võ Duy Bình. All rights reserved.</p>
+    </footer>
+
+    <script src="js/sidebar.js"></script>
+    <script>
+        // Gallery Filter
+        const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+        const galleryItems = document.querySelectorAll('[class*="gallery-item-"]');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active', 'bg-blue-600', 'text-white', 'border-blue-600'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active', 'bg-blue-600', 'text-white', 'border-blue-600');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                // Filter items
+                galleryItems.forEach(item => {
+                    if (filter === 'all') {
+                        item.style.display = 'block';
+                    } else {
+                        if (item.classList.contains(`gallery-item-${filter}`)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

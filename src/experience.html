@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Võ Duy Bình</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .experience-timeline {
+            position: relative;
+        }
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #2563eb, #9333ea);
+        }
+        @media (min-width: 768px) {
+            .experience-timeline::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 80px;
+        }
+        @media (min-width: 768px) {
+            .timeline-item {
+                padding-left: 0;
+                margin-bottom: 4rem;
+            }
+            .timeline-item:nth-child(odd) {
+                text-align: right;
+                padding-right: 50%;
+                padding-left: 0;
+            }
+            .timeline-item:nth-child(even) {
+                padding-left: 50%;
+            }
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 10px;
+            top: 5px;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #2563eb, #9333ea);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            z-index: 10;
+        }
+        @media (min-width: 768px) {
+            .timeline-dot {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 with-sidebar">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">
+                <div class="sidebar-logo-icon"><i class="fas fa-code"></i></div>
+                <span class="sidebar-logo-text">Vo Duy Binh</span>
+            </a>
+            <button class="sidebar-toggle"><i class="fas fa-chevron-left"></i></button>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="sidebar-nav-section">
+                <a href="index.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-home"></i></div>
+                    <span class="sidebar-nav-item-text">Home</span>
+                </a>
+                <a href="index.html#about" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-user"></i></div>
+                    <span class="sidebar-nav-item-text">About</span>
+                </a>
+                <a href="index.html#skills" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-star"></i></div>
+                    <span class="sidebar-nav-item-text">Skills</span>
+                </a>
+            </div>
+            <div class="sidebar-nav-section">
+                <label class="sidebar-nav-label">Pages</label>
+                <a href="services.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-briefcase"></i></div>
+                    <span class="sidebar-nav-item-text">Services</span>
+                </a>
+                <a href="experience.html" class="sidebar-nav-item active">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-building"></i></div>
+                    <span class="sidebar-nav-item-text">Experience</span>
+                </a>
+                <a href="timeline.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-timeline"></i></div>
+                    <span class="sidebar-nav-item-text">Timeline</span>
+                </a>
+                <a href="testimonials.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-quote-left"></i></div>
+                    <span class="sidebar-nav-item-text">Testimonials</span>
+                </a>
+                <a href="gallery.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-images"></i></div>
+                    <span class="sidebar-nav-item-text">Gallery</span>
+                </a>
+            </div>
+            <div class="sidebar-nav-section">
+                <label class="sidebar-nav-label">Content</label>
+                <a href="index.html#projects" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-laptop-code"></i></div>
+                    <span class="sidebar-nav-item-text">Projects</span>
+                </a>
+                <a href="blog.html" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-blog"></i></div>
+                    <span class="sidebar-nav-item-text">Blog</span>
+                </a>
+            </div>
+            <div class="sidebar-nav-section">
+                <label class="sidebar-nav-label">Other</label>
+                <a href="index.html#contact" class="sidebar-nav-item">
+                    <div class="sidebar-nav-item-icon"><i class="fas fa-envelope"></i></div>
+                    <span class="sidebar-nav-item-text">Contact</span>
+                </a>
+            </div>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="sidebar-socials">
+                <a href="https://github.com/DYBInh2k5" target="_blank" class="sidebar-social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/binhdzkosai18cm" target="_blank" class="sidebar-social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/in/b%C3%ACnh-v%C3%B5-duy-5a9891308/" target="_blank" class="sidebar-social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <button class="sidebar-theme-toggle"><i class="fas fa-sun"></i> <span>Theme</span></button>
+        </div>
+    </aside>
+    <div class="sidebar-overlay"></div>
+    <main class="main-content">
+
+    <!-- Hero Section -->
+    <section class="min-h-screen bg-gradient-to-br from-blue-600 via-blue-500 to-purple-600 text-white flex items-center justify-center px-4 pt-20">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in-up">
+                Work Experience
+            </h1>
+            <p class="text-xl sm:text-2xl text-blue-100 animate-fade-in-up" style="animation-delay: 0.1s">
+                My professional journey and internship experiences
+            </p>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-5xl mx-auto">
+            <div class="experience-timeline space-y-8 md:space-y-0">
+                
+                <!-- Experience 1: Internship -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"><i class="fas fa-briefcase"></i></div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Frontend Developer Intern</h3>
+                                <p class="text-blue-600 font-semibold">Tech Company XYZ</p>
+                            </div>
+                            <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Jun 2024 - Aug 2024</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Worked on responsive web interfaces using React and Tailwind CSS. Collaborated with the design team to implement UI/UX improvements and optimize component performance.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-sm rounded-full">React</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-sm rounded-full">Tailwind CSS</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-sm rounded-full">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 2: Part-time -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"><i class="fas fa-code"></i></div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Web Developer (Part-time)</h3>
+                                <p class="text-purple-600 font-semibold">Digital Agency ABC</p>
+                            </div>
+                            <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">Sep 2023 - Present</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Developed and maintained client websites using HTML, CSS, and JavaScript. Provided technical support and implemented SEO optimizations for better search engine ranking.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-sm rounded-full">HTML/CSS</span>
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-sm rounded-full">JavaScript</span>
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-sm rounded-full">WordPress</span>
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-sm rounded-full">SEO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 3: Project Lead -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"><i class="fas fa-project-diagram"></i></div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Project Team Lead</h3>
+                                <p class="text-green-600 font-semibold">University Project - Part Time Buddy</p>
+                            </div>
+                            <span class="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">Jan 2024 - May 2024</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Led a team of 4 developers to build a part-time job matching platform. Managed project timeline, coordinated with team members, and oversaw the deployment of the full-stack application.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-green-50 text-green-700 text-sm rounded-full">React</span>
+                            <span class="px-3 py-1 bg-green-50 text-green-700 text-sm rounded-full">Node.js</span>
+                            <span class="px-3 py-1 bg-green-50 text-green-700 text-sm rounded-full">Firebase</span>
+                            <span class="px-3 py-1 bg-green-50 text-green-700 text-sm rounded-full">Team Leadership</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 4: Database Admin -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"><i class="fas fa-database"></i></div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Database Administrator Assistant</h3>
+                                <p class="text-indigo-600 font-semibold">IT Department - Hoa Sen University</p>
+                            </div>
+                            <span class="px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">Jul 2023 - Dec 2023</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Assisted in managing SQL Server databases, performed data backups, and optimized database queries for better performance. Created stored procedures and views for reporting systems.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-sm rounded-full">SQL Server</span>
+                            <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-sm rounded-full">T-SQL</span>
+                            <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-sm rounded-full">Database Backup</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 5: Volunteer -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"><i class="fas fa-heart"></i></div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Volunteer Tech Mentor</h3>
+                                <p class="text-red-600 font-semibold">Hoa Sen University - Tech Club</p>
+                            </div>
+                            <span class="px-4 py-2 bg-red-100 text-red-700 rounded-full text-sm font-medium">Ongoing</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Mentoring junior students in web development, programming fundamentals, and best practices. Organizing coding workshops and helping with coding challenges.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-red-50 text-red-700 text-sm rounded-full">Mentoring</span>
+                            <span class="px-3 py-1 bg-red-50 text-red-700 text-sm rounded-full">Teaching</span>
+                            <span class="px-3 py-1 bg-red-50 text-red-700 text-sm rounded-full">Community</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+                <h3 class="font-bold text-lg mb-2">Team Collaboration</h3>
+                    <p class="text-gray-600">Working with diverse teams</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-green-50 hover:bg-green-100 transition">
+                    <i class="fas fa-chart-line text-4xl text-green-600 mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Problem Solving</h3>
+                    <p class="text-gray-600">Real-world challenges</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-indigo-50 hover:bg-indigo-100 transition">
+                    <i class="fas fa-database text-4xl text-indigo-600 mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Database Management</h3>
+                    <p class="text-gray-600">SQL & optimization</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-red-50 hover:bg-red-100 transition">
+                    <i class="fas fa-project-diagram text-4xl text-red-600 mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Project Management</h3>
+                    <p class="text-gray-600">Leadership & planning</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-yellow-50 hover:bg-yellow-100 transition">
+                    <i class="fas fa-lightbulb text-4xl text-yellow-600 mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Innovation</h3>
+                    <p class="text-gray-600">Creative solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 px-4 text-center">
+        <p>&copy; 2025 Võ Duy Bình. All rights reserved.</p>
+    </footer>
+
+    <script src="js/sidebar.js"></script>
+</body>
+</html>
